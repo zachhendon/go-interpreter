@@ -83,6 +83,9 @@ func newNumberToken(l *Lexer) token.Token {
 	for isDigit(l.ch) || l.ch == '.' {
 		l.readChar()
 		if l.ch == '.' {
+			if tokenType == token.FLOAT {
+				break
+			}
 			tokenType = token.FLOAT
 		}
 	}
